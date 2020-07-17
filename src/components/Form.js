@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
-const Form = () => {
+const Form = ({ addAppointment }) => {
   //Creatin Appointment State
   const [appointment, updateAppointment] = useState({
     pet: "",
@@ -17,19 +17,25 @@ const Form = () => {
   const handleChange = (e) => {
     updateAppointment({
       ...appointment,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   //get Values
-  const {pet, name, date, time, sympthoms} = appointment;
+  const { pet, name, date, time, sympthoms } = appointment;
 
   //handleSubmit Declaration
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     //Fields Validation
-    if(pet.trim() === '' || name.trim() === '' || date.trim() === '' || time.trim() === '' || sympthoms.trim() === ''){
+    if (
+      pet.trim() === "" ||
+      name.trim() === "" ||
+      date.trim() === "" ||
+      time.trim() === "" ||
+      sympthoms.trim() === ""
+    ) {
       updateError(true);
       return;
     }
@@ -37,24 +43,30 @@ const Form = () => {
 
     //Asign ID
     appointment.id = uuid();
-    console.log(appointment);
+    // console.log(appointment);
 
     //Create Appintment
+    addAppointment(appointment);
 
     //Clean Form
-  }
+    updateAppointment({
+      pet: "",
+      name: "",
+      date: "",
+      time: "",
+      sympthoms: "",
+    });
+  };
 
   return (
     <Fragment>
       <h2>New Appointment</h2>
 
-      {
-        error ? <p className="alert-error">All the fields are required</p> : null
-      }
+      {error ? (
+        <p className="alert-error">All the fields are required</p>
+      ) : null}
 
-      <form
-        onSubmit = {handleSubmit}
-      >
+      <form onSubmit={handleSubmit}>
         <label>Pet Name</label>
         <input
           type="text"
