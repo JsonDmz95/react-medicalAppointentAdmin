@@ -1,12 +1,29 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import Form from './components/Form';
 import Appointment from './components/Appointment';
 
 
 function App() {
 
+  // Appointmens in local storage
+  let initialSchedule = JSON.parse(localStorage.getItem('schedule'));
+  if(!initialSchedule){
+    initialSchedule = [];
+  } 
+
   // schedule state
-  const [schedule, updateSchedule] = useState([]);
+  const [schedule, updateSchedule] = useState(initialSchedule);
+
+  //Triger when statew changes, whith useEffect hook
+  useEffect(() => {
+    let initialSchedule = JSON.parse(localStorage.getItem('schedule'));
+
+    if(initialSchedule){
+      localStorage.setItem('schedule', JSON.stringify(schedule))
+    } else{
+      localStorage.setItem('schedule', JSON.stringify([]))
+    }
+  }, [schedule]);
 
   //add new appointment to schedule
   const addAppointment = appointment => {
@@ -22,6 +39,9 @@ function App() {
     updateSchedule(newschedule);
   }
 
+  // Conditional Message
+  const title = schedule.length === 0 ? 'Schedule Empty :(' : 'Schedule'
+
   return (
     <Fragment>
           <h1>Vaterinary appointments admin</h1>
@@ -34,7 +54,7 @@ function App() {
                   />
                 </div>
                 <div className="one-half column">
-                  <h2>Schedule</h2>
+                  <h2>{title}</h2>
                   {schedule.map(appointment => (
                     <Appointment
                       key={appointment.id} 
