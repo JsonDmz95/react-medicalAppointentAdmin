@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-medicalAppointentAdmin/static/css/main.fb29061b.chunk.css",
+    "main.js": "/react-medicalAppointentAdmin/static/js/main.a549ad06.chunk.js",
+    "main.js.map": "/react-medicalAppointentAdmin/static/js/main.a549ad06.chunk.js.map",
+    "runtime-main.js": "/react-medicalAppointentAdmin/static/js/runtime-main.25d4d1c7.js",
+    "runtime-main.js.map": "/react-medicalAppointentAdmin/static/js/runtime-main.25d4d1c7.js.map",
+    "static/js/2.730bce93.chunk.js": "/react-medicalAppointentAdmin/static/js/2.730bce93.chunk.js",
+    "static/js/2.730bce93.chunk.js.map": "/react-medicalAppointentAdmin/static/js/2.730bce93.chunk.js.map",
+    "index.html": "/react-medicalAppointentAdmin/index.html",
+    "precache-manifest.004a6cf90c92a2d5d8a5ebf31280e260.js": "/react-medicalAppointentAdmin/precache-manifest.004a6cf90c92a2d5d8a5ebf31280e260.js",
+    "service-worker.js": "/react-medicalAppointentAdmin/service-worker.js",
+    "static/css/main.fb29061b.chunk.css.map": "/react-medicalAppointentAdmin/static/css/main.fb29061b.chunk.css.map",
+    "static/js/2.730bce93.chunk.js.LICENSE.txt": "/react-medicalAppointentAdmin/static/js/2.730bce93.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25d4d1c7.js",
+    "static/js/2.730bce93.chunk.js",
+    "static/css/main.fb29061b.chunk.css",
+    "static/js/main.a549ad06.chunk.js"
+  ]
+}
